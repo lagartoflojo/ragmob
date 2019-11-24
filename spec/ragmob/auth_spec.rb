@@ -1,4 +1,5 @@
 require "spec_helper"
+require "ragmob/auth"
 
 describe Ragmob::Auth do
   describe '#access_token' do
