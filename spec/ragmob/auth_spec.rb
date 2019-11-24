@@ -2,19 +2,17 @@ require "spec_helper"
 
 describe Ragmob::Auth do
   describe '#access_token' do
-    let(:auth) { Ragmob::Auth.new(server_url: 'https://support.example.com', client_id: client_id, client_secret: client_secret) }
+    let(:auth) { Ragmob::Auth.new(server_url: test_server_url, client_id: test_client_id, client_secret: test_client_secret) }
     def subject
       auth.access_token
     end
 
     context "with valid credentials" do
-      let(:client_id) { 'abcd' }
-      let(:client_secret) { 'gefj' }
       let(:request) do
         stub_request(:post, %r{/oauth2/token})
           .with(
             body: { grant_type: "client_credentials" },
-            basic_auth: [client_id, client_secret]
+            basic_auth: [test_client_id, test_client_secret]
           )
           .to_return(body: '{"access_token":"letoken","token_type":"Bearer","expires_in":3600}').then
           .to_return(body: '{"access_token":"anewtoken","token_type":"Bearer","expires_in":3600}') # This should not get called
@@ -41,7 +39,7 @@ describe Ragmob::Auth do
           stub_request(:post, %r{/oauth2/token})
             .with(
               body: { grant_type: "client_credentials" },
-              basic_auth: [client_id, client_secret]
+              basic_auth: [test_client_id, test_client_secret]
             )
             .to_return(body: '{"access_token":"letoken","token_type":"Bearer","expires_in":0}').then
             .to_return(body: '{"access_token":"anewtoken","token_type":"Bearer","expires_in":0}')
@@ -56,14 +54,11 @@ describe Ragmob::Auth do
     end
 
     context "with invalid credentials" do
-      let(:client_id) { "wrongid" }
-      let(:client_secret) { "wrongsecret" }
-
       before do
         stub_request(:post, %r{/oauth2/token})
           .with(
             body: { grant_type: "client_credentials" },
-            basic_auth: [client_id, client_secret]
+            basic_auth: [test_client_id, test_client_secret]
           )
           .to_return(body: '{"error":"invalid_client","message":"Client authentication failed."}', status: 401)
       end

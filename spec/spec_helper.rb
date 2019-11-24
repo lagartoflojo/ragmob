@@ -9,3 +9,15 @@ require "pry"
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 WebMock.disable_net_connect!(allow_localhost: true)
+
+def test_server_url
+  'https://support.example.com'
+end
+
+def test_client_id
+  'abcd'
+end
+
+def test_client_secret
+  'gefj'
+end
