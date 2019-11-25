@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = Ragmob::Client.new(server_url: 'https://support.example.com', client_id: 'myID', client_secret: 'mySecret')
+client.get_api_info
+```
+
+TODO: Write better usage instructions here
 
 ## Development
 
