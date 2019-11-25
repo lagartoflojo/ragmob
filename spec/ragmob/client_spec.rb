@@ -19,4 +19,13 @@ describe Ragmob::Client do
       _(subject.company_name).must_equal 'supportsuse'
     end
   end
+
+  describe '#check_health' do
+    subject { client.check_health }
+
+    it "returns the health of the appliance" do
+      _(subject).must_be_instance_of Ragmob::Parsers::HealthCheck
+      _(subject.appliance_id).must_equal '50adeb59f0f04163b09b7591af1949ea'
+    end
+  end
 end
