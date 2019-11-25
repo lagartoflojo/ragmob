@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "http", "~> 4.2"
+  spec.add_dependency "nokogiri-happymapper", "~> 0.8"
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "guard", "~> 2.16"
@@ -33,6 +34,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rubocop", "~> 0.76"
   spec.add_development_dependency "rubocop-minitest", "~> 0.5"
-  spec.add_development_dependency "webmock", "~> 3.7"
   spec.add_development_dependency "vcr", "~> 5.0"
+  spec.add_development_dependency "webmock", "~> 3.7"
 end
