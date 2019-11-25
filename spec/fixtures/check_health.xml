@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<health_check xmlns="http://www.bomgar.com/namespaces/API/command">
+	<appliance id="50adeb59f0f04163b09b7591af1949ea">ip-10-156-1-1</appliance>
+	<version>19.1.8 (37380-749b17ca33d2475427428f263608ae98d69f7a35)</version>
+	<success>1</success>
+	<failover_role>none</failover_role>
+  <enabled_shared_ips>
+    <ip>1.2.3.4</ip>
+    <ip>5.6.7.8</ip>
+  </enabled_shared_ips>
+  <error_message>all is good</error_message>
+  <last_data_sync_time>2019-10-07T00:32:50.877+0000</last_data_sync_time>
+  <last_data_sync_status>success</last_data_sync_status>
+</health_check>
