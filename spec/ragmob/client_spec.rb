@@ -15,8 +15,8 @@ describe Ragmob::Client do
     subject { client.get_api_info }
 
     it "returns info about the API" do
-      resp = subject
-      _(resp.status).must_be :success?
+      _(subject).must_be_instance_of Ragmob::Parsers::ApiInformation
+      _(subject.company_name).must_equal 'supportsuse'
     end
   end
 end
