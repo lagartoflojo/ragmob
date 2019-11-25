@@ -44,3 +44,8 @@ end
 def test_client_secret
   ENV.fetch 'RAGMOB_TEST_CLIENT_SECRET', 'my-delicious-client-secret'
 end
+
+def load_fixture(fixture)
+  path = File.join "fixtures", fixture
+  File.read(File.expand_path(path, __dir__))
+end

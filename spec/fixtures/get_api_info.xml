@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<api_information xmlns="http://www.bomgar.com/namespaces/API/command">
+	<api_version>1.19.0</api_version>
+	<company_name>supportsuse</company_name>
+	<timestamp>1574638362</timestamp>
+	<permissions>
+		<permission name="perm_command">full_access</permission>
+		<permission name="perm_reporting_support">1</permission>
+		<permission name="perm_reporting_presentation">1</permission>
+		<permission name="perm_reporting_license">1</permission>
+		<permission name="perm_reporting_archive">1</permission>
+		<permission name="perm_real_time_state">0</permission>
+		<permission name="perm_ecm">0</permission>
+		<permission name="perm_backup">0</permission>
+		<permission name="perm_scim">0</permission>
+	</permissions>
+</api_information>
