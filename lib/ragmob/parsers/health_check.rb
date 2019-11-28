@@ -26,7 +26,7 @@ module Ragmob
 
       element :version, String
       element :failover_role, String
-      element :success, String
+      element :success, Boolean
       element :error_message, String
       element :last_data_sync_time, Time
       element :last_data_sync_status, String
@@ -43,10 +43,6 @@ module Ragmob
 
       def enabled_shared_ips
         @enabled_shared_ips.map(&:ip)
-      end
-
-      def success
-        @success == '1'
       end
     end
   end
