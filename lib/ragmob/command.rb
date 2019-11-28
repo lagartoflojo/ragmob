@@ -1,5 +1,6 @@
 require "ragmob/parsers/api_information"
 require "ragmob/parsers/health_check"
+require "ragmob/parsers/session_key"
 
 module Ragmob
   module Command
