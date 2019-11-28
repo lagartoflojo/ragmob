@@ -28,4 +28,37 @@ describe Ragmob::Client do
       _(subject.appliance_id).must_equal '50adeb59f0f04163b09b7591af1949ea'
     end
   end
+
+  describe '#generate_session_key' do
+    subject { client.generate_session_key(params) }
+
+    context "when queue_id is general" do
+      let(:params) { { queue_id: 'general' } }
+
+      it "generates a session key for the general queue" do
+        _(subject).must_be_instance_of Ragmob::Parsers::SessionKey
+        _(subject.queue_name).must_equal 'general'
+      end
+    end
+
+    context "when queue_id is a rep" do
+      let(:params) { { queue_id: 'rep:1' } }
+
+      it "generates a session key for the rep" do
+        _(subject).must_be_instance_of Ragmob::Parsers::SessionKey
+        _(subject.queue_name).must_equal 'rep'
+        _(subject.queue_id).must_equal 1
+      end
+    end
+
+    context "when an external key is passed" do
+      let(:params) { { queue_id: 'general', 'session.custom.external_key' => '1234' } }
+
+      it "generates a session key for the given external key" do
+        _(subject).must_be_instance_of Ragmob::Parsers::SessionKey
+        _(subject.queue_name).must_equal 'general'
+        _(subject.external_key).must_equal '1234'
+      end
+    end
+  end
 end
