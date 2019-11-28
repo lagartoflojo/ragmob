@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<SERVER_HOST>/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - "<SERVER_HOST>"
+      User-Agent:
+      - http.rb/4.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Nov 2019 16:35:22 GMT
+      Server:
+      - Apache
+      Cache-Control:
+      - must-revalidate, no-cache, no-store, post-check=0, pre-check=0, private
+      Vary:
+      - Accept,X-Requested-With,Authorization
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self'' https://license.bomgar.com wss://<SERVER_HOST>
+        wss://<SERVER_HOST>:443; style-src ''self'' ''unsafe-inline''; img-src ''self''
+        data: blob:; frame-ancestors ''self''; report-uri /csp_report;'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - global_warnings=%7B%22ssl_verification%22%3Afalse%2C%22site_expiry%22%3A999%2C%22embassy_deprecation%22%3Afalse%7D;
+        expires=Tue, 26-Nov-2024 16:35:22 GMT; Max-Age=157680000; path=/login; secure;
+        samesite=strict
+      - ns_sl=eyJpdiI6IlhLVUVlOFMranNiTEx3MUZocXpySlE9PSIsInZhbHVlIjoicExKZnZpQ2tKamZYbUpwRjlQYm1LUG1URURPNXFxOVwvSDd2aVFCT3hCNkhBREx1RDk1ckdTbnA2cW5QSmg1eUciLCJtYWMiOiJhM2E5ZDNjMWVjZjY2MWU3Mzg0OTY4OTQzNzEyNjQwOGI3ZTBlZGNiZWMyZDlhZmM1Njc0MDNhZmQyMzNjNzAzIn0%3D;
+        path=/; secure; httponly; samesite=strict
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ua-Compatible:
+      - IE=edge
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"<ACCESS_TOKEN>","token_type":"Bearer","expires_in":3600}'
+    http_version:
+  recorded_at: Thu, 28 Nov 2019 16:35:22 GMT
+- request:
+    method: get
+    uri: https://<SERVER_HOST>/api/command?action=generate_session_key&queue_id=general&session.custom.external_key=1234&type=support
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Connection:
+      - close
+      Host:
+      - "<SERVER_HOST>"
+      User-Agent:
+      - http.rb/4.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 28 Nov 2019 16:35:22 GMT
+      Server:
+      - Apache
+      Cache-Control:
+      - must-revalidate, no-cache, no-store, post-check=0, pre-check=0, private
+      Content-Security-Policy:
+      - 'default-src ''self''; connect-src ''self'' https://license.bomgar.com wss://<SERVER_HOST>
+        wss://<SERVER_HOST>:443; style-src ''self'' ''unsafe-inline''; img-src ''self''
+        data: blob:; frame-ancestors ''self''; report-uri /csp_report;'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Set-Cookie:
+      - global_warnings=%7B%22ssl_verification%22%3Afalse%2C%22site_expiry%22%3A999%2C%22embassy_deprecation%22%3Afalse%7D;
+        expires=Tue, 26-Nov-2024 16:35:22 GMT; Max-Age=157680000; path=/login; secure;
+        samesite=strict
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - X-Requested-With,Authorization
+      X-Ua-Compatible:
+      - IE=edge
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<session_key xmlns=\"http://www.bomgar.com/namespaces/API/command\">\n\n\t<type>support</type>\n\t<expires>1575045322</expires>\n\t<queue
+        available=\"0\">general</queue>\n\t<external_key>1234</external_key>\n\t<short_key>6187161</short_key>\n\t<key_url>https://<SERVER_HOST>/?ak=f3c7150968a4cfb0e1585963fa1d2ba8</key_url>\n\t<mail_subject>Remote
+        Support Invitation</mail_subject>\n\t<mail_body>\nClick on the link below
+        and follow the directions.\n\nhttps://<SERVER_HOST>/?ak=f3c7150968a4cfb0e1585963fa1d2ba8\n\nBomgar(TM)
+        enables a support representative to view your screen in order to assist you.\nSession
+        traffic is fully encrypted to protect your system's data.\nOnce a session
+        has begun, you will be able to end it at any time\n\t</mail_body>\n</session_key>\n"
+    http_version:
+  recorded_at: Thu, 28 Nov 2019 16:35:22 GMT
+recorded_with: VCR 5.0.0

@@ -1,5 +1,6 @@
 require "ragmob/parsers/api_information"
 require "ragmob/parsers/health_check"
+require "ragmob/parsers/session_key"
 
 module Ragmob
   module Command
@@ -11,6 +12,12 @@ module Ragmob
     def check_health
       resp = connection.get('api/command?action=check_health')
       Ragmob::Parsers::HealthCheck.parse(resp.body.to_s, single: true)
+    end
+
+    def generate_session_key(params = {})
+      params[:type] ||= 'support'
+      resp = connection.get('api/command?action=generate_session_key', params: params)
+      Ragmob::Parsers::SessionKey.parse(resp.body.to_s, single: true)
     end
   end
 end

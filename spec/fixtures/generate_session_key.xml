@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<session_key xmlns="http://www.bomgar.com/namespaces/API/command">
+
+	<type>support</type>
+  <ttl>3600</ttl>
+	<expires>1575042838</expires>
+	<queue available="0">general</queue>
+  <queue_id>1</queue_id>
+	<external_key>1234</external_key>
+	<short_key>789456</short_key>
+	<key_url>https://support.example.com/?ak=53484e6bdf9866e852a9eaf906c07ccf</key_url>
+	<mail_subject>Remote Support Invitation</mail_subject>
+	<mail_body>
+Click on the link below and follow the directions.
+
+https://support.suse.com/?ak=53484e6bdf9866e852a9eaf906c07ccf
+
+Bomgar(TM) enables a support representative to view your screen in order to assist you.
+Session traffic is fully encrypted to protect your system's data.
+Once a session has begun, you will be able to end it at any time
+	</mail_body>
+</session_key>
